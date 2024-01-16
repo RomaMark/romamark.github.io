@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <!-- Add your CSS styles here if needed -->
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="button" onclick="validateLogin()">Login</button>
+      </form>
+    </div>
+
+    <script>
+      function validateLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Simple authentication logic (replace this with a more secure method)
+        var validUsername = "user";
+        var validPassword = "password";
+
+        if (username === validUsername && password === validPassword) {
+          // Authentication successful, redirect to the next page
+          window.location.href = "welcome.html";
+        } else {
+          // Authentication failed, display an error message if needed
+          alert("Invalid username or password");
+        }
+      }
+    </script>
+  </body>
+</html>
