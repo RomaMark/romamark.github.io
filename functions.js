@@ -1,4 +1,5 @@
-export function logoutUser() {
-  sessionStorage.removeItem("JWT");
-  window.location.href = "index.html";
-}
+const logoutBtn = document.querySelector(".logout-btn");
+
+logoutBtn.addEventListener("click", () => {
+  window.location.replace("index.html");
+});
