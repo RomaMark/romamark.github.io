@@ -1,33 +1,36 @@
-async function login() {
-  const usernameOrEmail = document.getElementById("usernameOrEmail").value;
-  const password = document.getElementById("password").value;
+import * as fn from "./functions.js";
 
-  const credentials = btoa(`${usernameOrEmail}:${password}`);
+var JWT;
 
-  try {
-    const response = await fetch("https://01.kood.tech/api/auth/signin", {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${credentials}`,
-      },
+if (!window.location.href.endsWith("mainpage.html")) {
+  document
+    .getElementById("login-form")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const usernameInput = document.getElementById("username").value;
+      const passwordInput = document.getElementById("password").value;
+
+      if ((await authenticateUser(usernameInput, passwordInput)) == true) {
+        console.log("Delayed value of JWT", JWT);
+        sessionStorage.setItem("JWT", JWT);
+        window.location.href = "mainpage.html";
+      } else {
+        alert("Invalid username or password. Please try again.");
+      }
     });
+}
 
-    if (response.ok) {
-      const data = await response.json();
-      const jwtToken = data.token;
-
-      // Save the JWT token to localStorage or sessionStorage
-      // For simplicity, saving to localStorage in this example
-      localStorage.setItem("jwtToken", jwtToken);
-
-      // Redirect or perform any other action after successful login
-      window.location.href = "mainpage.html";
-    } else {
-      // Handle authentication failure
-      const errorMessage = "User does not exist or password incorrect";
-      document.getElementById("errorMessage").innerText = errorMessage;
-    }
+async function authenticateUser(username, password) {
+  try {
+    JWT = await fn.loginUser(username, password);
+    return typeof JWT === "string";
   } catch (error) {
-    console.error("Error during login:", error);
+    console.error("Authentication error:", error);
+    return false;
   }
+}
+
+export function getJWT() {
+  return JWT;
 }

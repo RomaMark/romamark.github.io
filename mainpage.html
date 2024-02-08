@@ -1,13 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.css" />
+    <meta charset="utf-8" />
     <title>Graphql</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <button class="logout-btn">Logout</button>
-    <script src="./functions.js"></script>
+    <header>
+      <button id="logoutButton" class="logout-btn">Logout</button>
+      <h1>GRAPHQL</h1>
+    </header>
+    <main id="app">
+      <section class="chart-section">
+        <div class="chart-row">
+          <div class="profile-info" id="profile-info"></div>
+          <img id="graphql" src="graphql.png" alt="Image" />
+        </div>
+      </section>
+      <section class="chart-section">
+        <div class="chart-row">
+          <h2>XP Progress</h2>
+          <h2 id="total-xp">Total XP:</h2>
+        </div>
+        <div class="chart-container" id="chart"></div>
+      </section>
+      <section class="chart-section">
+        <div class="chart-row">
+          <h2>Project Completion</h2>
+          <ul id="project-completion"></ul>
+          <h2 id="projects-total">Projects completed:</h2>
+        </div>
+        <div class="chart-container" id="chart2"></div>
+      </section>
+      <section class="chart-section">
+        <div class="chart-row">
+          <h2>Audits</h2>
+          <h2 id="audits-total">Audits given and received:</h2>
+        </div>
+        <div class="chart-container" id="chart3"></div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script type="module" src="server.js"></script>
+    <script type="module">
+      import * as fn from "./functions.js";
+
+      async function init() {
+        await fn.main();
+        await fn.addChart();
+      }
+
+      window.addEventListener("load", init);
+
+      const logoutBtn = document.querySelector(".logout-btn");
+      logoutBtn.addEventListener("click", () => {
+        window.location.replace("index.html");
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,100 @@
+body {
+  font-family: "IBM Plex Mono", monospace;
+  background-image: url("https://img.freepik.com/premium-vector/background-gradient-line-wave-minimalist_483537-3885.jpg?w=1060");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+#graphql {
+  width: 200px;
+  height: 200px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  border: 3px solid #333;
+  object-fit: cover;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#app {
+  margin: 20px;
+}
+
+.chart-section {
+  background-color: hsl(0, 0%, 30%);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 1100px;
+  margin: auto;
+}
+.chart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-xp {
+  font: bold;
+  font-size: large;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.chart-container {
+  margin-top: 10px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  color: #dcf900;
+}
+
+h2 {
+  color: hsl(0, 0%, 80%);
+}
+
+button {
+  background-color: hsl(260, 100%, 77%);
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 4px;
+  float: right;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(260, 100%, 70%);
+}
+
+@media screen and (min-width: 768px) {
+  .chart-section {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.profile-info p {
+  color: rgb(204, 204, 204);
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
