@@ -483,8 +483,8 @@ function renderAuditsChart() {
       title: {
         text: "Audits completed per month",
       },
-      min: 5,
-      max: 40,
+      min: 0,
+      max: 30,
     },
     legend: {
       position: "top",
