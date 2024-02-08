@@ -283,7 +283,7 @@ export async function queryAudits(type) {
   var queryAudit = `query {
     transaction(
       where: {
-        userId: { _eq: 4645 }
+        userId: { _eq: ${userId} }
         type: { _eq: ${type}}
         path:{ _nlike: "%piscine%"}
       },
